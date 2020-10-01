@@ -6,14 +6,14 @@ const port = 3000;
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 
-// Get timestamp and adjust single-digit elements to 2-digits i needed
-function getNow() {
-    const today = new Date();
+// Get timestamp
 
-    const date = today.getFullYear()+'/'+(today.getMonth()+1).toString().padStart(2,"0")+'/'+ today.getDate().toString().padStart(2,"0");
-    const time = today.getHours().toString().padStart(2,"0") + ":" + today.getMinutes().toString().padStart(2,"0") + ":" + today.getSeconds().toString().padStart(2,"0");
-    const dateTime = date +' '+ time;
-    return dateTime;
+function getNow() {
+    const d = new Date();
+    const timestampISO = d.toISOString();
+    return timestampISO;
+
+ 
 }
 
 
